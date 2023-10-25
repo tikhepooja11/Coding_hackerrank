@@ -1,0 +1,32 @@
+//  Program to return most repeated word in a string with ignored keywords.
+const originalString : string = "World's simplest online word frequency calculator for web developers and programmers. Just paste your text in the form below, press the Calculate Word Frequency button, and you'll get individual word statistics. Press a button – get the word count. No ads, nonsense, or garbage."
+const arr: string[] = originalString.toLowerCase().split(" ")
+const ignoreKeywords : string[] =["is","in","or", "the", "and", "a"]
+
+//create hashmap
+
+const myHashMap = new Map();
+let checkIgnore:boolean = false
+for(let i=0;i< arr.length;i++){
+    
+    if(!myHashMap.get(arr[i])){
+         checkIgnore = ignoreKeywords.includes(arr[i])
+        if(!checkIgnore){
+            myHashMap.set(arr[i],0 )
+        }
+    }
+        const count = myHashMap.get(arr[i])
+        myHashMap.set(arr[i],count+1 )
+}
+
+let max = 0, maxKey="";
+for(let [key, value] of myHashMap.entries()){
+    if(value > max)
+    {
+        max = value
+        maxKey = key
+    }
+}
+console.log(myHashMap)
+console.log("max repeated word : "+ maxKey + "\nFrequency :" + max)
+

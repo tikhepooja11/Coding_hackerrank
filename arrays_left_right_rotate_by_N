@@ -1,0 +1,22 @@
+let arr: number[] = [1,2,3,4,5]
+const n = 4;
+const leftRotate =(arr:number[], n:number): number[] =>{
+    for(let i=0;i<n;i++){
+        const first = arr.shift() as number
+        arr.push(first)
+    }
+    return arr
+}
+const rightRotate =(arr:number[], n:number): number[] =>{
+    for(let i=0;i<n;i++){
+        const last = arr.pop() as number
+        arr.unshift(last)
+    }
+    return arr
+}
+const leftRotatedArray = leftRotate(arr,n)
+console.log("leftRotatedArray : "+ leftRotatedArray)
+
+arr = [1,2,3,4,5]  // again defining original array
+const rightRotatedArray = rightRotate(arr,n)
+console.log("rightRotatedArray : "+ rightRotatedArray)

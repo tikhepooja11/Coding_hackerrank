@@ -1,0 +1,52 @@
+//  Reverse string without reversing its individual characters.
+const str: string = "ATUL.SAID.I.LOVE.YOU.POOJA"
+console.log(str)
+const splittedStrArray: string[] = str.split(".")
+const reversedStrArray: string[] = splittedStrArray.reverse()
+let reverseStr: string = "";
+for(let i=0;i<reversedStrArray.length;i++){
+    reverseStr = reverseStr.concat(reversedStrArray[i])
+    if(i !== reversedStrArray.length -1){
+        reverseStr = reverseStr.concat(".")
+    }else{
+        continue;
+    }
+}
+console.log(reverseStr)
+
+//  reversing a number
+const num : number = 12011;
+console.log(num)
+const reversedNumStrArr : string[] = Array.from(num.toString()).reverse()
+let reversedNum = "";
+reversedNumStrArr.forEach((item)=> reversedNum = reversedNum.concat(item))
+console.log(Number(reversedNum))
+
+
+------------------------------   PALINDROME  -------------------------------------
+
+//  Approach 1 -> check number is palindrome or not by numberToString convert + reversing
+const checkPalindromeByNumReversing = (num: number, reversedNum: number): string => {
+    let isPalindrome: string = "";
+    num === reversedNum ?  isPalindrome = "palindrome" : isPalindrome = "Not palindrome"
+    return isPalindrome;
+}
+const isPalindrome: string = checkPalindromeByNumReversing(num, Number(reversedNum))
+console.log(isPalindrome)
+
+//  Approach 2 -> check number is palindrome or not by number reversing itself
+const checkPalindromeByRemainder = (num: number) : string =>{
+    let rev: string = "", temp = num, isPalindrome: string = "";
+
+    while(num > 0){
+        let rem = num % 10;
+        rev = rev + rem;
+        num = Math.floor(num/10)
+    }
+    temp === Number(rev) ? isPalindrome = "palindrome": isPalindrome = "Not palindrome"
+    return isPalindrome;
+}
+const isPalindrome: string = checkPalindromeByRemainder(num)
+console.log(isPalindrome)
+
+

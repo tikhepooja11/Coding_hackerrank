@@ -1,0 +1,5 @@
+const arr1: number[] = new Array(1,2,4,1,2,5,3,4,2,1,5)
+const arr2 = new Array([1,2,4,1,2,5,3,4,2,1,5])
+const N=5;
+const arr3 = new Array(N)
+const map1 = new Map<number,number>()

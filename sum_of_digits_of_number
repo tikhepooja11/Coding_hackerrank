@@ -1,0 +1,18 @@
+//  sum of digits of a number
+//  Approach 1 ->---------------------------------------- 
+let num : number = 12011
+const numToStr : string = num.toString()
+const numStrArray: string[] = Array.from(numToStr) 
+let sum = 0
+numStrArray.forEach((num)=> sum = sum + Number(num))
+console.log(sum)
+
+//  Approach 2 ->-----------------------------------------
+let sum = 0;
+const temp = num;
+while(num > 0){
+    let rem = num % 10;
+    sum = sum + rem;
+    num = Math.floor(num/10)
+}
+console.log(sum)

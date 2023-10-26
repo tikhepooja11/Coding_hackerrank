@@ -1,0 +1,21 @@
+//  Approach 1 -> Find missing number of an array;
+let arr: number[] = [1,2,3,4,7,6]
+const N = arr.length + 1;
+const expectedSum : number =  N * (N + 1) / 2
+let actualSum = 0;
+arr.forEach((item) => actualSum = actualSum + item)
+const missingNum: number = expectedSum - actualSum;
+console.log(missingNum)
+
+
+//  Approach 2 -> Using count variable
+let count = 1, missingNumber:number = 0;
+arr = arr.sort();
+for(let i=0; i< arr.length; i++){
+    if(count !== arr[i]){
+        missingNumber = count
+        break
+    }
+    count++;
+}
+console.log(missingNumber)

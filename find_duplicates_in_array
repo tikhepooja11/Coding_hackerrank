@@ -1,0 +1,39 @@
+//  list duplicate numbers in an array----------------------------------------------
+
+Approach 1 ->
+let arr: number[] = [1,2,4,1,2,5,3,4,2,1,5]
+const map = new Map<number,number>()
+arr.forEach((item)=>{
+    if(!map.has(item)){
+        map.set(item,1)
+    }else{
+        let count = map.get(item) as number
+        map.set(item, count+1)
+    }
+    
+})
+const duplicatesArray: number[] =[];
+for(let [key, value] of map.entries()){
+    if(value > 1){
+        duplicatesArray.push(key)
+    }
+}
+console.log(duplicatesArray)
+
+
+
+
+
+Approach 2 ->
+
+let arr: number[] = [1,2,4,1,2,5,3,4,2,1,5]
+arr = arr.sort()
+for(let i=0; i<arr.length;i++){
+    if(arr[i] === arr[i+1] && !temp.includes(arr[i])){
+        temp.push(arr[i])
+    }else{
+        continue;
+    }
+
+}
+console.log(temp)

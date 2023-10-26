@@ -1,0 +1,69 @@
+//  integer to roman conversion code -----------------------------
+
+const intToRoman = (num: number): string =>{
+    let roman : string = "";
+    const map = new Map<number, string>([
+        [1000,'M'],
+        [900,'XM'],
+        [500,'D'],
+        [400,'XD'],
+        [100,'C'],
+        [90,'XC'],
+        [50,'L'],
+        [40,'XL'],
+        [10,'X'],
+        [9,'IX'],
+        [5,'V'],
+        [4,'IV'],
+        [1,'I']
+    ])
+
+    for(const [key, value] of map.entries()){
+        while(num >= key){
+            num = num - key;
+            roman = roman + value;
+        }
+    }
+    return roman;
+}
+const num : number = 30
+const roman : string = intToRoman(num);
+console.log(roman)
+
+
+
+
+
+//  roman to int value -------------------------------------------------------
+
+
+const romanToInt = (romanStr : string): number =>{
+    let intNumber : number = 0;
+    const map = new Map([
+        ['I',1],
+        ['V',5],
+        ['X',10],
+        ['L',50],
+        ['C',100],
+        ['D',500],
+        ['M',1000],
+    ])
+
+    romanStr = romanStr.replace('IV', 'IIII')
+    romanStr = romanStr.replace('IX', 'VIIII')
+    romanStr = romanStr.replace('XL', 'XXXX')
+    romanStr = romanStr.replace('XC', 'LXXXX')
+    romanStr = romanStr.replace('CD', 'CCCC')
+    romanStr = romanStr.replace('CM', 'DCCCC') //900
+
+    for(let i=0; i< romanStr.length; i++){
+        intNumber = intNumber  + (map.get(romanStr.charAt(i))) 
+    }
+    return intNumber
+
+}
+let romanStr: string = "XXX";
+console.log(romanToInt(romanStr))
+
+
+

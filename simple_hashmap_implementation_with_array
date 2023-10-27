@@ -2,11 +2,12 @@
 
 const myHashMap = new Map();
 for(let i=0;i< arr.length;i++){
-    if(!myHashMap.get(arr[i])){
-        myHashMap.set(arr[i],0 )
-    }
+    if(!myHashMap.has(arr[i])){
+        myHashMap.set(arr[i],1 )
+    }else{
     const count = myHashMap.get(arr[i])
     myHashMap.set(arr[i],count+1 )
+    }
 }
 
 console.log(myHashMap)

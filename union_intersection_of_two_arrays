@@ -24,9 +24,9 @@ while(i < arr1.length){
     i++;
 }
 
-while(i < arr1.length){
-    union.push(arr1[i])
-    i++;
+while(j < arr2.length){
+    union.push(arr2[j])
+    j++;
 }
 
 console.log(union)

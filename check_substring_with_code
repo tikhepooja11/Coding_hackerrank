@@ -1,0 +1,29 @@
+//  CHECK substring present
+const str: string = "GeeksForGeeks"
+const result = str.includes("For")
+console.log(result) //  true
+
+const mySubString = str.substring(5)
+console.log(mySubString)    //  "ForGeeks"
+
+//  check substring through code
+const originalStr: string = "GeeksForGeeks"
+const subStr = "For"
+let flag: number = 0
+for(let i=0 ;i <= originalStr.length - subStr.length; i++){
+    let j ;
+    for(j=0;j<subStr.length;j++){
+        if(subStr.charAt(j) !== originalStr.charAt(i+j))
+        {
+            break;
+        }
+    }
+    if(j=== subStr.length){
+        flag = 1
+        console.log('found & returning its index    :   '+ i)
+    }
+}
+if(flag === 0){
+    console.log('Not found    :   '+ "-1")
+}
+

@@ -11,3 +11,34 @@ for(let i=0;i< arr.length;i++){
 }
 
 console.log(myHashMap)
+
+
+
+
+//  CODE TO FIND SECOND MAXIMUM REPEATED STRING IN STRING ARRAY.
+
+const str: string[] = ["geeks", "for", "geeks", "for", "geeks", "aaa"]
+const map = new Map<string, number>()
+for(let i=0; i< str.length; i++){
+    if(!map.has(str[i])){
+        map.set(str[i], 1)
+    }else{
+        let count = map.get(str[1]) as number
+        map.set(str[i], count+1)
+    }
+}
+console.log(map)
+let first_max = Number.MIN_VALUE, sec_max = Number.MIN_VALUE, secondMaxStr = ""
+for(const [key, value] of map.entries()){
+    if(value > first_max){
+        sec_max = first_max;
+        first_max = value
+    }else if(value > sec_max && value !== first_max){
+        sec_max = value
+        secondMaxStr = key
+    }
+}
+console.log(secondMaxStr)
+
+
+

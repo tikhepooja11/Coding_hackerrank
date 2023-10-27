@@ -1,0 +1,29 @@
+
+//  implement str withouot vowels
+const str: string = "GeeksForGeeks"
+const vowels ="aeiouAEIOU"
+let strWithoutVowels = ""
+for(let i=0; i< str.length ;i++){
+    if(vowels.indexOf(str.charAt(i)) === -1){
+        strWithoutVowels = strWithoutVowels + str.charAt(i)
+    }
+}
+
+console.log(strWithoutVowels)
+
+//  merge two strings
+const str1: string = "Hello"
+const str2: string = "Bye"
+let mergedStr = ""
+
+for(let i=0; i< str1.length || str2.length;i++){
+    if(i<str1.length){
+        mergedStr = mergedStr + str1.charAt(i)
+    }
+    if(i<str2.length){
+        mergedStr = mergedStr + str2.charAt(i)
+    }
+}
+
+console.log(mergedStr)
+

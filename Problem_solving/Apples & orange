@@ -1,0 +1,24 @@
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+    let applesCount =0, orangesCount = 0
+    for(let i=s; i<= t; i++){
+        houseRange.push(i)
+    }
+    for(let i=0; i<apples.length; i++){
+        let position = 0;
+        position = a + apples[i]
+        if(checkPresentBetRange(position)){
+            applesCount++;
+        }  
+    }
+      for(let i=0; i<oranges.length; i++){
+        let position = 0;
+        position = b + oranges[i]
+        if(checkPresentBetRange(position)){
+            orangesCount++;
+        }
+        
+    }
+    console.log(applesCount + "\n" + orangesCount)
+
+}

@@ -1,0 +1,13 @@
+const scores: number[] = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+
+let max = scores[0], min = scores[0], higestRecordBreakCount = 0, lowestRecordBreakCount = 0;
+for(let i=1; i< scores.length ; i++){
+    if(scores[i] < min){
+        min = scores[i]
+        lowestRecordBreakCount++ ;
+    }else if(scores[i] > max){
+        max = scores[i];
+        higestRecordBreakCount++;
+    }
+}
+console.log(higestRecordBreakCount+ " " + lowestRecordBreakCount )

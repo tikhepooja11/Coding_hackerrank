@@ -1,0 +1,59 @@
+An arcade game player wants to climb to the top of the leaderboard and track their ranking. The game uses Dense Ranking, so its leaderboard works like this:
+
+The player with the highest score is ranked number  on the leaderboard.
+Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
+
+
+soln -> All testcases are passed only remaining with 3 testcases 
+
+
+function climbingLeaderboard(ranked: number[], player: number[]): number[] {
+    // Write your code here
+    let map = new Map<number, number>() // <score, rank>
+    let rank = 0;
+    for(let i=0; i<ranked.length; i++){
+        if(!map.has(ranked[i])){
+            rank = rank + 1;
+            map.set(ranked[i], rank )
+        }else{
+            continue;
+        }
+    }
+    // console.log(map)
+    let temp: number[] = [], latestRank
+    for(let i=0; i<player.length; i++){
+        if(map.has(player[i])){
+            latestRank = map.get(player[i]) as number
+        }else{
+            let j, flag: number = 0;
+            if(player[i] > ranked[0]){
+                flag = 1;
+                latestRank = 1
+            }else{
+                for(j=0; j<ranked.length-1; j++){
+                    if(ranked[j] === ranked[j+1] ){
+                        continue;
+                    }else{
+                        if(player[i] < ranked[j] && player[i] > ranked[j+1]){
+                            flag = 1;
+                            latestRank = map.get(ranked[j]) as number + 1
+                        }else{
+                            continue
+                        }
+                    }
+                }
+                if(flag === 0){
+                    latestRank = map.get(ranked[j]) as number + 1
+                }
+                
+            }
+            
+        }
+        temp.push(latestRank as number)
+    }
+    return temp
+
+}
+
+const temp = climbingLeaderboard([100,100,50,40,20,10], [5,25,50,120])
+temp.map((it) => console.log(it))

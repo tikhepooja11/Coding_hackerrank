@@ -1,0 +1,11 @@
+function catAndMouse(x, y, z) {
+    let catADiff = z - x;
+    let catBDiff = z - y;
+    if(catADiff + catBDiff === 0){
+        return "Mouse C"
+    }else if(catADiff < catBDiff){
+        return "Cat A"
+    }else{
+        return "Cat B"
+    }
+}

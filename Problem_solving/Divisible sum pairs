@@ -11,3 +11,33 @@ function divisibleSumPairs(n: number, k: number, ar: number[]): number {
     return count
 
 }
+
+
+SubArray_division -
+Two children, Lily and Ron, want to share a chocolate bar. Each of the squares has an integer on it.
+
+Lily decides to share a contiguous segment of the bar selected such that:
+
+The length of the segment matches Ron's birth month, and,
+The sum of the integers on the squares is equal to his birth day.
+Determine how many ways she can divide the chocolate.
+
+soln ->
+
+function birthday(s: number[], d: number, m: number): number {
+    // Write your code here
+    let count = 0;
+    for(let i=0; i< s.length - (m - 1); i++){
+        let j=0, n=i
+        let sum = 0
+        while(j < m){
+            sum = sum + s[n]
+            j++, n++
+        }
+        if(sum  === d){
+            count++ ;
+        }
+    }
+    return count;
+
+}

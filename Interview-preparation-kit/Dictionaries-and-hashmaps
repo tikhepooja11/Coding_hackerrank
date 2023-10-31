@@ -1,0 +1,51 @@
+
+function checkMagazine(magazine: string[], note: string[]): void {
+    // Write your code here
+    let magazineMap = new Map()
+    for(let i=0; i<magazine.length; i++){
+        if(!magazineMap.has(magazine[i])){
+            magazineMap.set(magazine[i],1)
+        }else{
+            let cnt = magazineMap.get(magazine[i])
+            magazineMap.set(magazine[i], cnt + 1)
+        }
+    }
+    // console.log(magazineMap)
+
+    let noteMap = new Map()
+    for(let i=0; i<note.length; i++){
+        if(!noteMap.has(note[i])){
+            noteMap.set(note[i],1)
+        }else{
+            let cnt = noteMap.get(note[i])
+            noteMap.set(note[i], cnt + 1)
+        }
+    }
+    // console.log(noteMap)
+
+    let flag = 0;
+    for(const [ key, value] of noteMap.entries()){
+        const isExist = magazineMap.has(key)
+        if(isExist){
+            const magazineWordCount = magazineMap.get(key)
+            const noteWordCount = value;
+            if( noteWordCount > magazineWordCount ){
+                flag = 1
+                break;
+            }else{
+                continue;
+            }
+        }else{
+            flag = 1;
+        }
+    }
+    if(flag === 0){
+        console.log("Yes")
+    }else{
+        console.log("No")
+    }
+}
+
+// checkMagazine(["give", "me", "one", "grand", "today", "night"], ["give", "one", "grand", "today"])
+// checkMagazine(["two", "times", "three", "is", "not", "four"], ["two", "times", "two", "is", "four"])
+checkMagazine(["ive", "got", "a", "lovely", "bunch", "of", "coconuts"], ["ive", "got", "some", "coconuts"])

@@ -49,3 +49,44 @@ function checkMagazine(magazine: string[], note: string[]): void {
 // checkMagazine(["give", "me", "one", "grand", "today", "night"], ["give", "one", "grand", "today"])
 // checkMagazine(["two", "times", "three", "is", "not", "four"], ["two", "times", "two", "is", "four"])
 checkMagazine(["ive", "got", "a", "lovely", "bunch", "of", "coconuts"], ["ive", "got", "some", "coconuts"])
+
+
+Problem 2 -> Two strings  
+Approach 1 soln -> solved using dictionaries.
+function twoStrings(s1: string, s2: string): string {
+    // Write your code here
+  type Dictionary = Record<string, string>;             //  or //   let map : {[key: string]: string} = {};
+  let map : Dictionary = {};
+  for (let i of s1.split("")) {
+    map[i] = i;
+  }
+  console.log(map) // see below 
+  for (let i of s2.split("")) {
+    if (map[i]) {
+      return "YES";
+    }
+  }
+  return "NO";
+
+}
+
+// result
+{ h: 'h', e: 'e', l: 'l', o: 'o' }
+{ h: 'h', i: 'i' }
+
+
+
+
+Approach 2 -> using string iterations
+ let flag =0;
+    for(let i=0; i< s1.length; i++){
+        for(let j=0; j< s2.length; j++){
+            if(s1[i] === s2[j]){
+                flag =1
+                return "YES"
+            }
+        }
+    }
+    if(flag === 0){
+        return "NO"
+    }

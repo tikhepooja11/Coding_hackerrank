@@ -16,7 +16,7 @@ const str1: string = "Hello"
 const str2: string = "Bye"
 let mergedStr = ""
 
-for(let i=0; i< str1.length || str2.length;i++){
+for(let i=0; i< str1.length && str2.length;i++){
     if(i<str1.length){
         mergedStr = mergedStr + str1.charAt(i)
     }

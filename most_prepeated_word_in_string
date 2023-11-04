@@ -9,14 +9,15 @@ const myHashMap = new Map();
 let checkIgnore:boolean = false
 for(let i=0;i< arr.length;i++){
     
-    if(!myHashMap.get(arr[i])){
+    if(!myHashMap.has(arr[i])){
          checkIgnore = ignoreKeywords.includes(arr[i])
         if(!checkIgnore){
-            myHashMap.set(arr[i],0 )
+            myHashMap.set(arr[i],1 )
         }
-    }
+    }else{
         const count = myHashMap.get(arr[i])
         myHashMap.set(arr[i],count+1 )
+    }
 }
 
 let max = 0, maxKey="";
@@ -29,4 +30,3 @@ for(let [key, value] of myHashMap.entries()){
 }
 console.log(myHashMap)
 console.log("max repeated word : "+ maxKey + "\nFrequency :" + max)
-

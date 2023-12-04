@@ -1,0 +1,25 @@
+
+//  Code to remove smallest N elements from an original array without changing its actual order from original one
+const removeSmallestN = (arr:number[], N:number) => {
+    if(N >= arr.length){
+        return []
+    }else if(N <= 0){
+        return arr;
+    }
+    const originalArrayBeforeSort = arr.slice();    //  copy of an existing array
+
+    const removed: number[] = arr.sort().slice(0,N)
+
+    arr = originalArrayBeforeSort.filter((item)=> !removed.includes(item) )
+    return arr
+  
+}
+
+let arr: number[] = [5,2,7,1,4]
+const N :number = 3;
+const result =  removeSmallestN(arr,N);
+console.log(result)
+
+
+
+

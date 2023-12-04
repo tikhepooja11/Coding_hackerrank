@@ -10,3 +10,17 @@ for(let i=0;i<arr.length;i++){
 }
 console.log(temp)
 
+
+
+Approach 2 -> Without sorting
+
+let arr: number[] = [1,2,4,1,2,5,3,4,2,1,5]
+let removedDuplicates: number[] = []
+
+arr.forEach((item)=> {
+    if(!removedDuplicates.includes(item))
+    {
+        removedDuplicates.push(item)
+    }
+})
+console.log(removedDuplicates)

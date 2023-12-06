@@ -24,6 +24,9 @@ const asyncFunctionCall = async () => {
 };
 asyncFunctionCall();
 
+
+// Answer -> false
+
 //  With promise.then & promise.catch methods
 const greetings = (name) => {
   console.log("hello " + name);
@@ -52,3 +55,5 @@ const asyncFunctionCall = () => {
 };
 
 asyncFunctionCall();
+
+//  Answer -> pooja

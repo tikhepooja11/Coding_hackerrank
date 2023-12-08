@@ -1,0 +1,43 @@
+//  hackerank competition code for vowels substring
+//  If not vowels found in entire string return Not found! else return such substring with specified length, If same length 2 substrings occurs returns the one with lowest index
+function findSubstring(s:string, k:number) {
+    // Write your code here
+    let vowels = "aeiouAEIOU";
+    let strWithoutVowels =""
+    for(let i=0; i<s.length; i++){
+        if(vowels.indexOf(s.charAt(i)) === -1){       
+            strWithoutVowels = strWithoutVowels + s.charAt(i)
+        }  
+    }
+    console.log(strWithoutVowels)
+    if(!strWithoutVowels || strWithoutVowels === "" || strWithoutVowels === s){
+        return "Not found!"
+    }
+    
+    let map = new Map();
+    let subStr , numOfVowels
+    for(let i=0;i<s.length;i++){
+        subStr = s.substring(i,i+k)
+        numOfVowels= numberOfVowels(subStr);
+        if(!map.has(subStr)){
+            map.set(subStr,numOfVowels)
+        }
+    }
+
+console.log(map)
+    let max =0, maxKey
+    for(let [key,value] of map.entries()){
+        if(value > max && value <= k){
+            max = value
+            maxKey = key;
+        }
+    }
+    return maxKey
+     
+
+}
+// console.log(findSubstring("caberqiitefg",2))
+// console.log(findSubstring("eiuaooo",4)) // correct
+console.log(findSubstring("azerdii",5))
+
+

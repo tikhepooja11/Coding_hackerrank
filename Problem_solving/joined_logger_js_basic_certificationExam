@@ -1,0 +1,30 @@
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+const buildMessage = (level, sep, msgs) =>{
+    let result = "";
+    msgs.forEach((msg, index) => {
+        if(msg.level >= level){
+            result = result + msg.text
+            if(index !== msgs.length - 1){
+                result = result + sep
+            }
+        }
+    })
+    return result;
+}
+
+function joinedLogger(level, sep) {
+  // write your code here
+  const msgs = [
+        {level:10, text:"foo"},
+        {level:20, text:"bar"},
+        {level:30, text:"baz"}
+    ]
+  return buildMessage(level,sep,msgs)
+//   console.log(result)
+}
+
+
+
+const result = joinedLogger(15,";")
+console.log(result)

@@ -1,0 +1,6 @@
+router.use(express.urlencoded({ extended: true })); -> Middleware use to parse the url-encoded-data payloads passsed through incoming request when Content-Type header is set to application/x-www-form-urlencoded
+                                                      so, it is used to parse the html form data (usually comes in url)
+
+router.use(express.json()) =>   Middleware used to parse the JSON payloads passed through incoming request bodies when content-type header is set to application/json, so it makes json payloads accessible through req.body
+
+router.use(bodyParser.json()) =>  Middleware used to parse the JSON payloads only before Express.js version 4.16.0 or later. Now it is similar to express.json() middleware.

@@ -25,6 +25,29 @@ console.log(Number(reversedNum))
 
 ------------------------------   PALINDROME  -------------------------------------
 
+//    Approach 1 -> check string palindrome for odd / even length strings without string reversing.
+const str: string = "level"; // or "abba" - for even str testing // "level" - for odd string testing
+let flag = 1;
+
+for (let i = 0; i < Math.floor(str.length / 2)-1; i++) {
+  let j = str.length - 1;
+
+  if (str[i] !== str[j]) {
+    flag = 0;
+    break;
+  } else {
+    j--;
+  }
+}
+
+if (flag === 0) {
+  console.log("Not palindrome");
+} else {
+  console.log("Palindrome");
+}
+
+
+
 //  Approach 1 -> check number is palindrome or not by numberToString convert + reversing
 const checkPalindromeByNumReversing = (num: number, reversedNum: number): string => {
     let isPalindrome: string = "";

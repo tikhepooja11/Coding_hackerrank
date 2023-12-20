@@ -14,15 +14,21 @@ console.log(strWithoutVowels)
 //  merge two strings
 const str1: string = "Hello"
 const str2: string = "Bye"
-let mergedStr = ""
+let mergedStr:string = ""
+let i;
+for( i=0; i<str1.length && i<str2.length ; i++){
+  if(i<str1.length){
+    mergedStr = mergedStr + str1[i] + str2[i]
+  }
+}
+while (i < str1.length) {
+  mergedStr = mergedStr + str1[i];
+  i++;
+}
 
-for(let i=0; i< str1.length && str2.length;i++){
-    if(i<str1.length){
-        mergedStr = mergedStr + str1.charAt(i)
-    }
-    if(i<str2.length){
-        mergedStr = mergedStr + str2.charAt(i)
-    }
+while (i < str2.length) {
+  mergedStr = mergedStr + str2[i];
+  i++;
 }
 
 console.log(mergedStr)

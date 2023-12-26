@@ -14,8 +14,10 @@ closure() //    calling innerfun which already has access to outerfun variable -
 // Importance or when to use closure ->
 
 // closure allows us to create a private data inside outerFunction 
-// in this example private data is outervariable which is not accessible by simply calling outerfunction
-// so it encapsulates/ hides the data from outer world & only innerfun can access it.
+// closure allows the inner function to remember the environment in which it was created. i.e though outer function finsihed its excution, when innerfunction 
+// gets called it will rember its parent environment  & thus remembers the value of a, which was created in outerfunction previously.
+// So, in this example closure achieve data hiding by allowing innerFunction to access variable a, as the external code doesn't have direct access to the a parameter, 
+// and the inner function can use it without exposing it to the outside world.
 
 // example 2
 

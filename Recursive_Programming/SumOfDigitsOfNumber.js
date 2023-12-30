@@ -1,3 +1,6 @@
+//  Basically n % 10 used to remove last digit of number, while Math.floor(n / 10) used to return remaining number after removing last digit.
+//  So, again apply recursion call on remaining number.
+
 const sumOfDigits = (n : number) =>{
   if(n === 0){
     return 0 

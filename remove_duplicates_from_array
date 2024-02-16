@@ -24,3 +24,14 @@ arr.forEach((item)=> {
     }
 })
 console.log(removedDuplicates)
+
+
+Approach 3 -> Without any new data structure ->
+
+function removeDuplicates(arr) {
+  arr = arr.filter((value, index, self) => self.indexOf(value) === index);
+  return arr;
+}
+const originalArray = [1, 2, 3, 4, 3, 2, 5, 6, 1];
+const newArray = removeDuplicates(originalArray);
+console.log(newArray)

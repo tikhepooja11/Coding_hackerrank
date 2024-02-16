@@ -29,14 +29,10 @@ console.log(Number(reversedNum))
 const str: string = "level"; // or "abba" - for even str testing // "level" - for odd string testing
 let flag = 1;
 
-for (let i = 0; i < Math.floor(str.length / 2)-1; i++) {
-  let j = str.length - 1;
-
+for (let i = 0, j = str.length - 1; i <= Math.floor(str.length / 2)-1; i++,j--) {
   if (str[i] !== str[j]) {
     flag = 0;
     break;
-  } else {
-    j--;
   }
 }
 

@@ -34,7 +34,7 @@
 // However, similar to function declarations, the initialization (class definition) is not hoisted.
 
 // Example 1: Class declaration hoisting
-let car1 = new Car(); // Works fine
+let car1 = new Car(); // throws error cannot access car before initalization, ie. throws reference error.
 
 class Car {
   constructor(make, model) {
@@ -46,8 +46,8 @@ class Car {
 console.log(car1); // Outputs: Car { make: undefined, model: undefined }
 
 
-// Example 2: Class expression hoisting
-let car2 = new Car(); // Throws ReferenceError
+// Example 2: Class expression hoisting - works just like variables and functions hoisting
+let car2 = new Car(); // undefined -> works fine
 
 let Car = class {
   constructor(make, model) {

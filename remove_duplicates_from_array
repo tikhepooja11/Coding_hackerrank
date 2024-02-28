@@ -30,6 +30,8 @@ Approach 3 -> Without any new data structure ->
 way 1 -  arr = [...new Set(arr)];
 way 2 -
 
+//    checks if the index of the current value is equal to the first index of that value in the array
+
 function removeDuplicates(arr) {
   arr = arr.filter((value, index, self) => self.indexOf(value) === index);
   return arr;

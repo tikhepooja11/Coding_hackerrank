@@ -1,0 +1,32 @@
+
+//  JSON.stringify() - Basically this function takes replacerfunction and indentation as optional parameters. 
+//  Second argument is replacerFunction / properties to include. If dont want to pass we can simply write null there.
+//  Third argument is indentation i.e No of spaces. If dont want to pass simply write null there.
+
+const students = [
+    {
+        name : "Pooja Tikhe",
+        age : 20,
+        grade : "A",
+        gender : "Female"
+    },
+    {
+        name : "Sushant Tikhe",
+        age : 25,
+        grade : "B",
+        gender : "Male"
+    }
+]
+
+const propertiesToInclude = ["name", "age"]
+const replacerFunction = (key, value) =>{
+    if(key === "age" && value < 25){
+        return undefined    //  dont include age property
+    }
+    return value        //  include all other properties
+}
+
+students.map((student)=>{
+    console.log(JSON.stringify(student, propertiesToInclude, 2))
+    console.log(JSON.stringify(student, replacerFunction, 10))
+})
